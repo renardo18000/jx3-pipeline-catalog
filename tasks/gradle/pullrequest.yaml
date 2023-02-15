@@ -40,6 +40,12 @@ spec:
           script: |
             #!/bin/sh
             gradle clean build
+        - image: gradle:jdk11-openj9
+          name: check-gradle-check
+          resources: {}
+            #!/bin/sh
+            gradle clean test sonarqube
+          script: |
         - image: ghcr.io/jenkins-x/jx-registry:0.1.10
           name: check-registry
           resources: {}
